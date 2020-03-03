@@ -1,0 +1,40 @@
+char getGrade(int a, int b, int c) {
+  int mean = (a+b+c) /3;
+  mean /= 10;
+  switch (mean)
+  {
+  case 10:
+    return 'A';
+  case 9:
+    return 'A';
+  case 8:
+    return 'B';
+  case 7:
+    return 'C';
+  case 6:
+    return 'D';    
+  default:
+    return 'F';
+    
+  }
+  /*if (mean >= 90 && mean <= 100)
+  {
+    return 'A';
+  }
+  else if (mean < 90 && mean >= 80)
+  {
+    return 'B';
+  }
+  else if (mean < 80 && mean >= 70)
+  {
+    return 'C';
+  }
+  else if (mean >= 60 && mean < 70)
+  {
+    return 'D';
+  }
+  else 
+  {
+    return 'F';
+  }*/
+}
