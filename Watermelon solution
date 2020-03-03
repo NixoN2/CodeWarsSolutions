@@ -1,0 +1,7 @@
+bool divide(unsigned weight)
+{
+    /*if (weight % 2 == 1 || weight == 2)
+      return 0;
+    return 1;*/
+    return (weight % 2 ==1 || weight == 2) ? 0 : 1;
+}
