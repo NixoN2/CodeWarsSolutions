@@ -1,0 +1,6 @@
+bool xorf(bool a, bool b)
+{
+    if (a == b)
+    return 0;
+    return 1;
+}
