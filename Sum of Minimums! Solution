@@ -1,0 +1,29 @@
+#include <vector>
+
+int sum_of_minimums(const std::vector<std::vector<int>> &numbers)
+{
+    int size =  numbers.size();
+    int colomnSize = numbers[0].size();
+    int* mins = new int[size];
+    for (int i = 0; i < size; ++i)
+    {
+        mins[i] = INT_MAX;
+    }
+    
+    for (int i = 0; i < size; ++i)
+    {
+      
+        for (int j = 0; j < colomnSize; ++j)
+            {
+              if (numbers[i][j] < mins[i])
+                  mins[i] = numbers[i][j];
+            }
+    }
+    int sum = 0;
+    for (int i = 0; i < size; ++i)
+    {
+        sum += mins[i];
+    }
+    delete mins;
+    return sum;
+}
