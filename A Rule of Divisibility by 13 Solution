@@ -1,0 +1,72 @@
+#include <cmath>
+#include <iostream>
+class Thirteen
+{
+public:
+	static long long thirt(long long n)
+	{
+bool stationary = 0;
+int time = 2;
+while (stationary == 0)
+{
+	long long num = n;
+	int length = 0;
+	while (num > 0)
+	{
+		length++;
+		num /= 10;
+	}
+
+	int* numbers = new int[length];
+	for (int i = 0; i < length; ++i)
+	{
+		num = n;
+		int degree1 = pow(10, length - i);
+		int degree2 = pow(10, length - i - 1);
+		numbers[length - i - 1] = n % degree1 / degree2;
+	}
+	int sum = 0;
+	for (int i = 0; i < length; ++i)
+	{
+		switch (i % 6)
+		{
+		case 0:
+			sum += numbers[i];
+			break;
+		case 1:
+			sum += numbers[i] * 10;
+			break;
+		case 2:
+			sum += numbers[i] * 9;
+			break;
+		case 3:
+			sum += numbers[i] * 12;
+			break;
+		case 4:
+			sum += numbers[i] * 3;
+			break;
+		case 5:
+			sum += numbers[i] * 4;
+			break;
+		}
+	}
+	delete[] numbers;
+	n = sum;
+	int newSum = sum;
+	if (time >0)
+	{
+		--time;
+		continue;
+
+	}
+	if (newSum == n)
+	{
+		stationary = 1;
+	}
+
+}
+
+
+return n;
+  }
+};
