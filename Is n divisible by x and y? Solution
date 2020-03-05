@@ -1,0 +1,5 @@
+bool isDivisible(int n, int x, int y) {
+  bool ndivx = n % x == 0;
+  bool ndivy = n % y == 0;
+  return ndivx && ndivy;
+}
