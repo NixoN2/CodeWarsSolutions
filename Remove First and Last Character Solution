@@ -1,0 +1,13 @@
+#include <string>
+
+using namespace std; 
+
+string sliceString(string str)
+{
+	
+	str.front() = ' ';
+	str.back() = ' ';
+	string newstr;
+	newstr.append(str, 1, str.size()-2);
+	return newstr;
+}
