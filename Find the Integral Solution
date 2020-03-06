@@ -1,0 +1,9 @@
+#include <string>
+std::string integrate(const int& coefficient,const int& exponent){
+  std::string res;
+  int exp = exponent + 1;
+  
+  int coef = coefficient / exp;
+  res  = std::to_string(coef) + "x^" + std::to_string(exp);
+  return res;
+}
