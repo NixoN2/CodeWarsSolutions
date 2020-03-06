@@ -1,0 +1,24 @@
+#include <string>
+std::string bmi(double w, double h) 
+{
+  std::string str;
+  double bmi = w/(h*h);
+  if (bmi <= 18.5)
+  {
+    str = "Underweight";
+   }
+   else 
+  if (bmi <= 25 )
+  {
+  
+    str = "Normal";
+  }else
+  if (bmi <= 30.1)
+  {
+   str = "Overweight";
+  }
+  else{
+   str = "Obese";
+   }
+   return str;
+   }
