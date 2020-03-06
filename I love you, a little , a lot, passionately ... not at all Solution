@@ -1,0 +1,24 @@
+std::string how_much_i_love_you(int nb_petals) {
+  std::string str;
+  switch (nb_petals%6)
+  {
+  case 0:
+    str = "not at all";
+    break;
+  case 1:
+    str = "I love you";
+    break;
+  case 2:
+    str = "a little";
+    break;
+  case 3:
+    str = "a lot";
+    break;
+  case 4:
+    str = "passionately";
+    break;
+  case 5:
+    str = "madly";
+  }
+  return str;
+}
