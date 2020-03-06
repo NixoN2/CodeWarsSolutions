@@ -1,0 +1,16 @@
+#include<string>
+#include<cmath>
+using namespace std;
+
+
+
+string bonus_time(int salary, bool bonus)
+{
+  
+    if (bonus == 1)
+     salary *= 10;
+     
+    std::string str = "$" + std::to_string(salary);
+    return str;
+    
+}
