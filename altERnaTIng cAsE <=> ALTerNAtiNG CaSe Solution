@@ -1,0 +1,15 @@
+#include <iostream>
+#include <algorithm>
+char change_case (char c) {
+    if (std::isupper(c)) 
+        return std::tolower(c); 
+    else
+        return std::toupper(c); 
+}
+
+string to_alternating_case(const string& str)
+{
+  std::string newstr = str;
+	std::transform(newstr.begin(), newstr.end(), newstr.begin(), change_case);
+  return newstr;
+}
