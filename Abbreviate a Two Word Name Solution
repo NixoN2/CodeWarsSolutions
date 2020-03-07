@@ -1,0 +1,13 @@
+#include <string>
+std::string abbrevName(std::string name)
+{
+  std::string str;
+  str.push_back(std::toupper(name[0]));
+  str.push_back('.');
+  for (int i = 0; i < name.size(); ++i)
+  {
+      if(name[i] == ' ')
+        str.push_back(std::toupper(name[i+1]));
+  }
+  return str;
+}
