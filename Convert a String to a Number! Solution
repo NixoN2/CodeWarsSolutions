@@ -1,0 +1,33 @@
+#include <string>
+#include <vector>
+
+int string_to_number(const std::string& s) {
+	std::string str = s;
+	bool ifMinus = 0;
+	std::vector<int> vec;
+	for (int i = 0; i < str.size(); ++i)
+	{
+		if (str[i] == '-')
+		{
+			ifMinus = 1;
+			continue;
+		}
+		std::cout << (int)str[i] - 48 << " ";
+		vec.push_back((int)str[i]-48);
+
+	}
+	int num = vec[0];
+	for (int i = 1; i < vec.size(); ++i)
+	{
+		num *= 10;
+		num += vec[i];
+	}
+	if (ifMinus == 1)
+	{
+		return -num;
+	}
+	else
+	{
+		return num;
+	}
+}
