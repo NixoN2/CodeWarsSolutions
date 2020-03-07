@@ -1,0 +1,20 @@
+#include <string>
+
+std::string createPhoneNumber(const int arr [10]){
+  std::string str;
+  str.push_back( '(');
+  str.push_back((char)(arr[0]+48));
+  str.push_back((char) (arr[1]+48));
+  str.push_back((char) (arr[2]+48));
+  str.push_back(  ')');
+  str.push_back( ' ');
+  str.push_back((char)(arr[3]+48));
+  str.push_back((char)( arr[4]+48));
+  str.push_back((char) (arr[5]+48));
+  str.push_back( '-');
+  str.push_back((char) (arr[6]+48));
+  str.push_back((char)( arr[7]+48));
+  str.push_back( (char)( arr[8]+48));
+  str.push_back( (char)( arr[9]+48));
+  return str;
+}
