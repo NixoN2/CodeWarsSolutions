@@ -1,0 +1,10 @@
+bool set_alarm(const bool& employed,const bool& vacation){
+   if (employed && !vacation)
+    {
+      return 1;
+   }
+   else
+   {
+     return 0;
+   }
+}
