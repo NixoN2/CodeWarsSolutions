@@ -1,0 +1,58 @@
+#include <vector>
+template <typename Type>
+void Swap(Type& a, Type& b)
+{
+  Type tmp = a;
+  a = b;
+  b = tmp;
+}
+template <typename Type>
+void merge(Type Array[], int size, int splitIdx)
+{
+	int lpos = 0;
+	int rpos = splitIdx;
+	int pos = 0;
+	Type* tmpSorted = new Type[size];
+
+	while (lpos < splitIdx && rpos < size)
+		tmpSorted[pos++] = Array[lpos] < Array[rpos] ? Array[lpos++] : Array[rpos++];
+
+	while (lpos < splitIdx)
+		tmpSorted[pos++] = Array[lpos++];
+
+	while (rpos < size)
+		tmpSorted[pos++] = Array[rpos++];
+
+	for (int i = 0; i < size; ++i)
+		Array[i] = tmpSorted[i];
+	delete[] tmpSorted;
+}
+
+//Сортировка слиянием
+template <typename Type>
+void mergeSort(Type Array[], int size)
+{
+	if (size <= 1) return;
+
+	int splitIdx = size / 2;
+	mergeSort(Array, splitIdx);
+	mergeSort(Array + splitIdx, size - splitIdx);
+	merge(Array, size, splitIdx);
+}
+int sumOfDifferences(const std::vector<int>& arr){
+  if (arr.size() == 1 || arr.size() == 0)
+      return 0;
+  int* newarr = new int[arr.size()];
+  for (int i = 0; i < arr.size(); ++i)
+  {
+      newarr[i] = 0;
+  }
+  for (int i = 0; i < arr.size(); ++i)
+  {
+    newarr[i] = arr[i];
+  }  
+  mergeSort(newarr, arr.size());
+  int sum = newarr[arr.size()-1] - newarr[0];
+  
+  return sum;
+}
