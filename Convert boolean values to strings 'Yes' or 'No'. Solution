@@ -1,0 +1,11 @@
+using namespace std;
+#include <string>
+string bool_to_word(bool value)
+{
+  std::string str;
+  if (value == 1)
+   str = "Yes";
+  if (value == 0)
+   str = "No";
+   return str;
+}
