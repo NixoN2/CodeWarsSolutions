@@ -1,0 +1,7 @@
+#include <cmath>
+double converter(int mpg)
+{
+    double gallon = 4.54609188;
+    double mile = 1.609344;
+    return std::floor(mpg / gallon * mile*100 +0.5)/100;
+}
