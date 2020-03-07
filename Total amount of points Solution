@@ -1,0 +1,23 @@
+#include <array>
+#include <string>
+
+int points(const std::array<std::string, 10>& games) {
+  int points = 0;
+  int pInGameTeam = -1;
+  int pInGameOtherTeam = -1;
+  for (int i = 0; i < games.size(); ++i)
+  {
+    pInGameTeam = (int)games[i][0]-48;
+    pInGameOtherTeam = (int)games[i][2]-48;
+    if (pInGameTeam > pInGameOtherTeam)
+    {
+      points += 3;
+      
+    }
+    else if(pInGameTeam == pInGameOtherTeam)
+    {
+      points++;
+    }
+  }
+  return points;
+}
