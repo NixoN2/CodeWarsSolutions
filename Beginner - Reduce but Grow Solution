@@ -1,0 +1,9 @@
+#include <vector>
+int grow(std::vector<int> nums) {
+  int grow = 1;
+  for (int i = 0; i < nums.size(); ++i)
+    {
+        grow *= nums[i];
+    }
+    return grow;
+}
