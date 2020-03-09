@@ -1,0 +1,26 @@
+#include <string>
+#include <cmath>
+
+std::string number_to_string(int num) {
+	std::string numS;
+	if (num < 0)
+	{
+		numS.push_back('-');
+	}
+	int length = 0;
+	int numForCountLength = abs(num);
+	num = abs(num);
+	while (numForCountLength > 0)
+	{
+		length++;
+		numForCountLength /= 10;
+	}
+	for (int i = 0; i < length; ++i)
+	{
+		int degree1 = pow(10, length - i);
+		int degree2 = pow(10, length - i - 1);
+		int ch = num % degree1 / degree2;
+		numS.push_back((char)(ch + 48));
+	}
+	return numS;
+}
