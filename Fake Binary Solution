@@ -1,0 +1,25 @@
+#include <string>
+
+std::string fakeBin(std::string str){
+  std::string below = "01234";
+  std::string upper = "56789";
+  for (int i = 0; i < str.size();++i)
+  {
+      for (int j = 0; j < below.size(); ++j)
+      {
+          if (str[i] == below[j])
+          {
+              str[i] = '0';
+          }
+          
+      }
+      for (int j = 0; j < upper.size();++j)
+      {
+          if (str[i] == upper[j])
+          {
+              str[i] = '1';
+          }
+      }   
+  }
+  return str;
+}
