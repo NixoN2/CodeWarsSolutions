@@ -1,0 +1,5 @@
+int odd_count(int n){
+  int num = (n / 2);
+  
+  return num;
+}
