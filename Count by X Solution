@@ -1,0 +1,9 @@
+#include <vector>
+std::vector<int> countBy(int x,int n){
+  std::vector<int> numbers;
+  for (int i = x; i <= x*n; i += x)
+  {
+    numbers.push_back(i);
+  }
+  return numbers;
+}
