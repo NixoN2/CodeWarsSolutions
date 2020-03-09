@@ -1,0 +1,28 @@
+#include <vector>
+
+std::vector<int> humanYearsCatYearsDogYears(int humanYears) {
+  std::vector<int> ages;
+  ages.push_back(humanYears);
+  int kit = 15;
+  int dog = 15;
+ 
+  if (humanYears == 2)
+  {
+    kit = 24;
+    dog = 24;
+  }
+  if (humanYears > 2)
+  {
+  kit = 24;
+  dog = 24;
+    for (int i = 3; i <= humanYears; ++i)
+    {
+      kit += 4;
+      dog += 5;
+    
+    }
+  }
+  ages.push_back(kit);
+  ages.push_back(dog);
+  return ages;
+}
