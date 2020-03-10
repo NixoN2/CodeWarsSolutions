@@ -1,0 +1,59 @@
+#include <string>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+string jumpingNumber(int number)
+{
+	if (number / 10 == 0)
+	{
+		return "Jumping!!";
+	}
+	int num = number;
+	int length = 0;
+	while (num > 0)
+	{
+		num /= 10;
+		length++;
+	}
+	bool jumping = 1;
+	std::vector<int> vec;
+	for (int i = 0; i < length; ++i)
+	{
+		int degree1 = pow(10, length - i);
+		int degree2 = pow(10, length - i - 1);
+		int ch = number % degree1 / degree2;
+		vec.push_back(ch);
+	}
+	if (length == 2)
+	{ 
+		for (int i = 1; i < vec.size(); ++i)
+		{
+			if (vec[i - 1] != vec[i] + 1 && vec[i - 1] != vec[i] - 1)
+			{
+				jumping = 0;
+			}
+		}
+	}
+	else {
+		for (int i = 1; i < vec.size() - 1; ++i)
+		{
+
+			{
+				if (vec[i - 1] != vec[i] + 1 && vec[i - 1] != vec[i] - 1 || vec[i + 1] != vec[i] + 1 && vec[i + 1] != vec[i] - 1)
+				{
+					jumping = 0;
+				}
+			}
+
+		}
+	}
+	if (jumping == 0)
+	{
+		return "Not!!";
+	}
+	else
+	{
+		return "Jumping!!";
+	}
+}
