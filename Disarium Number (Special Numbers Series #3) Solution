@@ -1,0 +1,35 @@
+#include <string>
+#include <vector>
+#include <cmath>
+using namespace std; 
+
+string disariumNumber (int number )
+{
+  int n = number;
+  int length=0;
+  while (n > 0)
+  {
+    length++;
+    n /= 10;
+  }
+  std::vector<int> vec;
+  for (int i = 0; i < length; ++i)
+  {
+    int degree1 = pow(10, length-i);
+    int degree2 = pow(10, length-i-1);
+    vec.push_back(number % degree1 / degree2);
+  }
+  int sum = 0;
+  for (int i = 0; i < vec.size();++i)
+  {
+    sum += pow(vec[i],i+1);
+  }
+  if (sum == number)
+  {
+    return "Disarium !!";
+  }
+  else
+  {
+    return "Not !!";
+  }
+}
