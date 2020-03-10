@@ -1,0 +1,42 @@
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std; 
+
+int fact(int n)
+{
+  if(n <= 1)
+     return 1;
+    return n*fact(n-1);
+}
+string strong_num (int number )
+{
+    int n = number;
+    int length = 0;
+    while (n > 0)
+    {
+      n /= 10;
+      length++;
+    }
+    std::vector<int> vec;
+    for (int i = 0; i < length; ++i)
+    {
+      int degree1 = pow(10, length-i);
+      int degree2 = pow(10, length-i-1);
+      vec.push_back(number % degree1 / degree2);
+    }
+    int factSum = 0;
+    for (int i = 0; i < vec.size() ; ++i)
+    {
+      factSum += fact(vec[i]);
+    }
+    if (factSum == number)
+    {
+      return "STRONG!!!!";
+    }
+    else
+    {
+      return "Not Strong !!";
+    }
+}
