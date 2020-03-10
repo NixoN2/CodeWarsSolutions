@@ -1,0 +1,46 @@
+#include <string>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+string balancedNum(unsigned long long int number)
+{
+	int sumLeft = 0;
+	int sumRight = 0;
+	int length = 0;
+	 unsigned long long int num = number;
+	while (num > 0)
+	{
+		length++;
+		num /= 10;
+	}
+	if (length == 1)
+	{
+		return "Balanced";
+	}
+	
+	std::vector<int> vec;
+	for (int i = 0; i < length; ++i)
+	{
+		int degree1 = pow(10, length - i);
+		int degree2 = pow(10, length - i - 1);
+		vec.push_back(number % degree1 / degree2);
+	}
+	if (vec.size() % 2 == 1)
+	{
+		for (int i = 0; i < (vec.size() / 2); ++i)
+		{
+			sumLeft += vec[i];
+			sumRight += vec[vec.size() - i-1];
+		}
+	}
+	else
+	{
+		for (int i = 0; i < (vec.size() / 2) - 1; ++i)
+		{
+			sumLeft += vec[i];
+			sumRight += vec[vec.size() - i-1];
+		}
+	}
+	return sumLeft == sumRight ? "Balanced" : "Not Balanced";
+}
