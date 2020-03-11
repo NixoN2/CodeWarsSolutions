@@ -1,0 +1,40 @@
+#include <string>
+#include <cmath>
+#include <vector>
+
+using namespace std; 
+
+string specialNumber (int number)
+{
+  int n = number;
+  bool spec = 1;
+  int length = 0;
+  while (n > 0)
+  {
+    length++;
+    n /= 10;
+   }
+   std::vector<int> digits;
+   std::vector<int> special ={0,1,2,3,4,5};
+   for (int i = 0; i < length; ++i)
+   {
+     int degree1 = pow(10, length-i);
+     int degree2 = pow(10, length-i-1);
+     digits.push_back(number % degree1 / degree2);
+   }
+   int sub = 0;
+   for (int i = 0;  i< digits.size(); ++i)
+   {
+     for (int j = 0; j < special.size(); ++j)
+     {
+       if ( digits[i]  == special[j])
+       {
+         sub++;
+       }
+     
+     }
+     }
+     
+     return sub == length ? "Special!!" : "NOT!!";
+   
+}
