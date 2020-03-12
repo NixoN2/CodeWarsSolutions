@@ -1,0 +1,54 @@
+#include <vector>
+#include <cmath>
+
+int deleteDigit(int n)
+{
+	int max = 0;
+	int num = n;
+	int length = 0;
+	int sum = 0;
+	while (num > 0)
+	{
+		length++;
+		num /= 10;
+	}
+	std::vector<int> number;
+	for (int i = 0; i < length; ++i)
+	{
+		int degree1 = pow(10, length - i);
+		int degree2 = pow(10, length - i - 1);
+		number.push_back(n % degree1 / degree2);
+	}
+	/*for (int i = 0; i < number.size(); ++i)
+	{
+		std::cout << number[i] << " ";
+
+	}
+	std::cout << std::endl;*/
+	for (int i = 0; i < number.size(); ++i)
+	{
+		std::vector<int> newnumber = number;
+		
+
+		newnumber.erase(newnumber.begin() + i);
+		/*for (int j = 0; j < newnumber.size(); ++j)
+		{
+			std::cout << newnumber[j] << " ";
+
+		}*/
+		std::cout << std::endl;
+		for (int j = 0; j < newnumber.size(); ++j)
+		{
+			int degree = pow(10, newnumber.size() - j-1);
+			sum += newnumber[j] * degree;
+			/*std::cout << sum << " ";*/
+			if (sum > max)
+			{
+				max = sum;
+			}
+			
+		}
+		sum = 0;
+	}
+	return max;
+}
