@@ -1,0 +1,97 @@
+#include <vector>
+#include <cmath>
+int calculateSum(int n)
+{
+  int num = n;
+  int length = 0;
+  while(num >0)
+  {
+    length++;
+    num /= 10;
+  }
+  std::vector<int> digits;
+  for(int i =0; i < length; ++i)
+  {
+    int degree = pow(10, length-i);
+    int degree3 = pow(10, length-i-1);
+    digits.push_back(n % degree / degree3);
+  }  
+  int sum = 0;
+  for (int i = 0; i < digits.size(); ++i)
+  {
+   sum += digits[i];
+  }
+  return sum;
+}
+class Kata {
+  public:
+  static bool validate(long long int n)
+{
+	 std::cout << n << std::endl;
+	long long int num = n;
+	std::cout << num << std::endl;
+	int length = 0;
+	while (num > 0)
+	{
+		length++;
+		num /= 10;
+		std::cout << num << std::endl;
+	}
+	if (length > 16)
+	{
+		n /= pow(10, length - 16);
+		length = 16;
+	}
+	std::cout << length << std::endl;
+	std::vector<int> nums;
+	for (int i = 0; i < length; ++i)
+	{
+		long long int degree1 = pow(10, length - i);
+		long long int degree2 = pow(10, length - i - 1);
+		nums.push_back(n % degree1 / degree2);
+	}
+	
+	if (length % 2 == 1)
+	{
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			if (i % 2 == 1)
+			{
+				nums[i] *= 2;
+			}
+		}
+	}
+	
+	else
+	{
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			if (i % 2 == 0)
+			{
+				nums[i] *= 2;
+			}
+		}
+	}
+	for (int i = 0; i < nums.size(); ++i)
+	{
+		std::cout << nums[i] << " ";
+	}
+	std::cout << std::endl;
+	int endSum = 0;
+	for (int i = 0; i < nums.size(); ++i)
+	{
+		if (nums[i] > 9)
+		{
+			nums[i] = calculateSum(nums[i]);
+		}
+		endSum += nums[i];
+	}
+	for (int i = 0; i < nums.size(); ++i)
+	{
+		std::cout << nums[i] << " ";
+	}
+	std::cout << std::endl;
+	std::cout << endSum % 10 << " ";
+	return endSum % 10 == 0 ? 1 : 0;
+}
+};
