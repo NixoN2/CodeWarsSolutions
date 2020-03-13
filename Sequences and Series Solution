@@ -1,0 +1,11 @@
+int getScore(int n) {
+  if(n == 1)
+  {
+    return 50;
+  }
+  if(n == 2)
+  {
+    return 150;
+  }
+  return getScore(n-1) + getScore(1)*n;
+}
