@@ -1,0 +1,37 @@
+#include <vector>
+#include <algorithm>
+bool chessBoardCellColor(std::string cell1, std::string cell2) {
+  bool firstSame = 0;
+  bool secondSame = 0;
+  std::vector<std::string> white = 
+  {"A2","A4","A6","A8",
+  "B1","B3","B5","B7",
+  "C2","C4","C6","C8",
+  "D1","D3","D5","D7",
+  "E2","E4","E6","E8",
+  "F1","F3","F5","F7",
+  "G2","G4","G6","G8",
+  "H1","H3","H5","H7"};
+  std::vector<std::string> black = 
+  {"A1","A3","A5","A7",
+  "B2","B4","B6","B8",
+  "C1","C3","C5","C7",
+  "D2","D4","D6","D8",
+  "E1","E3","E5","E7",
+  "F2","F4","F6","F8",
+  "G1","G3","G5","G7",
+  "H2","H4","H6","H8"};
+  for (int i = 0; i < white.size(); ++i)
+  {
+    if (white[i] == cell1)
+    {
+      firstSame = 1;
+    }
+    if (white[i] == cell2)
+    {
+      secondSame = 1;
+    }
+  }
+  
+  return firstSame == secondSame ? 1 : 0;
+}
