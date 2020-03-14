@@ -1,0 +1,11 @@
+
+int lateRide(int n) {
+  int h = n / 60;
+  int m = n - h*60;
+  int digits[4] = {0};
+  digits[0] = h / 10;
+  digits[1] = h % 10;
+  digits[2] = m / 10;
+  digits[3] = m % 10;
+  return digits[0] + digits[1] + digits[2] + digits[3];
+}
