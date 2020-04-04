@@ -1,0 +1,26 @@
+# include <string>
+std::string disemvowel(std::string str)
+{
+    std::string vowels = "aeiouAEIOU";
+    for (int i =0; i < str.size(); ++i)
+    {
+      for (int j = 0; j < vowels.size(); ++j)
+      {
+        if (str[i] == vowels[j])
+        {
+        str.erase(i,1);
+        }
+      }
+    }
+    for (int i =0; i < str.size(); ++i)
+    {
+      for (int j = 0; j < vowels.size(); ++j)
+      {
+        if (str[i] == vowels[j])
+        {
+        str.erase(i,1);
+        }
+      }
+    }
+    return str;
+}
