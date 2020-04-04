@@ -1,0 +1,29 @@
+#include <vector>
+#include <cmath>
+int digital_root(int n)
+{
+    int size = 0;
+    int num = n;
+    while (num > 0)
+    {
+      size++;
+      num /= 10;
+    }
+    std::vector<int> vec;
+    for (int i = 0; i < size; ++i)
+    {
+      int degree1 = pow(10, size-i);
+      int degree2 = pow(10, size-i-1);
+      vec.push_back(n % degree1 / degree2);
+    }
+    int sum = 0;
+    for (int i = 0; i < vec.size(); ++i)
+    {
+      sum += vec[i];
+    }
+    if (sum > 9)
+    {
+      return digital_root(sum);
+    }
+    return sum;
+}
